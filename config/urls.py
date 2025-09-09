@@ -6,9 +6,10 @@ from drf_spectacular.views import (
     SpectacularRedocView,
 )
 from rest_framework.routers import DefaultRouter
-from produtos.views import ProdutoViewSet
+from produtos.views import CategoriaViewSet, ProdutoViewSet
 
 router = DefaultRouter()
+router.register(r"categorias", CategoriaViewSet)
 router.register(r"produtos", ProdutoViewSet)
 
 urlpatterns = [
