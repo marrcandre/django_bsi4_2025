@@ -1,7 +1,8 @@
-from django.http import HttpResponse
+from rest_framework.viewsets import ModelViewSet
+from .models import Produto
+from .serializers import ProdutoSerializer
 
-def home(request):
-    return HttpResponse("<h1>Bem-vindo à BSI4 Store!</h1> <p><a href='/about/'>Sobre</a></p>")
 
-def about(request):
-    return HttpResponse("<h1>Sobre a BSI4 Store</h1> <p><a href='/'>Voltar para a Home</a></p>")
+class ProdutoViewSet(ModelViewSet):
+    queryset = Produto.objects.all()
+    serializer_class = ProdutoSerializer
