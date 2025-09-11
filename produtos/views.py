@@ -17,6 +17,6 @@ class ProdutoViewSet(ModelViewSet):
     # Filtros
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
     filterset_fields = ['preco', 'estoque']  # Filtragem exata por preço e estoque
-    search_fields = ['nome']  # Busca textual
+    search_fields = ['nome', 'categoria__nome']  # Busca textual
     ordering_fields = ['nome', 'preco', 'atualizado_em']  # Ordenação
     ordering = ['-atualizado_em']  # Ordenação padrão
